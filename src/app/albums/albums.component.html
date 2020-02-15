@@ -1,5 +1,5 @@
 <div
-  class="card m-3"
+  class="card m-1"
   *ngFor="let album of albums"
   style="width: 18rem; min-height: 12rem; display: inline-block;"
 >
@@ -7,7 +7,8 @@
     <div class="card-body">
       <h5 class="card-title">Index Album : {{ album.id }}</h5>
       <p class="card-text">{{ album.title }}</p>
-      <a routerLink="/photos" class="btn btn-primary">See More</a>
+      <a routerLink="/photos" class="btn btn-primary m-1">See More</a>
+      <a routerLink="/" class="btn btn-secondary m-1">Back</a>
     </div>
   </div>
 </div>
