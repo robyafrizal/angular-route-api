@@ -1,0 +1,15 @@
+<div class="container">
+  <div
+    class="card m-3"
+    *ngFor="let photo of photos"
+    style="width: 18rem; display: inline-block;"
+  >
+    <div class="img-card">
+      <img src="{{ photo.url }}" class="card-img-top" alt="photos_api" />
+    </div>
+    <div class="card-body">
+      <h5 class="card-text">Number of index : {{ photo.id }}</h5>
+      <a routerLink="/userss" class="btn btn-primary">Users</a>
+    </div>
+  </div>
+</div>

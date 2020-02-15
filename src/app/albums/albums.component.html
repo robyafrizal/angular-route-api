@@ -1,0 +1,13 @@
+<div
+  class="card m-3"
+  *ngFor="let album of albums"
+  style="width: 18rem; min-height: 12rem; display: inline-block;"
+>
+  <div class="card-group">
+    <div class="card-body">
+      <h5 class="card-title">Index Album : {{ album.id }}</h5>
+      <p class="card-text">{{ album.title }}</p>
+      <a routerLink="/photos" class="btn btn-primary">See More</a>
+    </div>
+  </div>
+</div>
