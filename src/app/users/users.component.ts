@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { PhotosService } from "../photos.service";
 
 @Component({
   selector: "app-users",
@@ -7,11 +7,10 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./users.component.css"]
 })
 export class UsersComponent implements OnInit {
-  users: any;
-  constructor(private http: HttpClient) {}
+  users;
+  constructor(private photosService: PhotosService) {}
 
   ngOnInit() {
-    let resp = this.http.get("https://jsonplaceholder.typicode.com/users");
-    resp.subscribe(data => (this.users = data));
+    this.users = this.photosService.getUsers();
   }
 }

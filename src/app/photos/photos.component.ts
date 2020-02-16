@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { PhotosService } from "../photos.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-photos",
@@ -7,11 +8,15 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./photos.component.css"]
 })
 export class PhotosComponent implements OnInit {
-  photos: any;
-  constructor(private http: HttpClient) {}
+  photos;
+  albumId;
+  constructor(
+    private photosService: PhotosService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    let resp = this.http.get("https://jsonplaceholder.typicode.com/photos");
-    resp.subscribe(data => (this.photos = data));
+    this.albumId = this.route.snapshot.params.albumId;
+    this.photos = this.photosService.getPhotos(this.albumId);
   }
 }
