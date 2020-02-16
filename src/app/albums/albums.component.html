@@ -1,19 +1,30 @@
-<div class="container-fluid">
+<div class="container-fluid m-4">
   <h2>Albums</h2>
   <p>
     Albums with route and API
   </p>
-  <div
-    class="card m-1"
-    *ngFor="let album of albums"
-    style="width: 18rem; min-height: 12rem; display: inline-block;"
-  >
-    <div class="card-group">
-      <div class="card-body">
-        <h5 class="card-title">Index Album : {{ album.id }}</h5>
-        <p class="card-text">{{ album.title }}</p>
-        <a routerLink="/photos" class="btn btn-primary m-1">Photos</a>
-        <a routerLink="/users" class="btn btn-secondary m-1">Back</a>
+  <div class="container">
+    <div
+      class="card m-1"
+      *ngFor="
+        let album of albums | paginate: { itemsPerPage: 5, currentPage: p }
+      "
+      style="width: 18rem; min-height: 12rem; display: inline-block;"
+    >
+      <div class="card-group">
+        <div class="card-body">
+          <h5 class="card-title">Index Album : {{ album.id }}</h5>
+          <p class="card-text">{{ album.title }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row m-3">
+      <div>
+        <a routerLink="/photos" class="btn btn-primary m-2">Photos</a>
+        <a routerLink="/users" class="btn btn-secondary m-2">Back</a>
+      </div>
+      <div id="pagination" class="m-2">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>
   </div>

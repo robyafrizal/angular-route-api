@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid m-4">
   <h2>Photo</h2>
   <p>
     Photo with route and API
@@ -6,7 +6,9 @@
   <div class="container">
     <div
       class="card m-3"
-      *ngFor="let photo of photos"
+      *ngFor="
+        let photo of photos | paginate: { itemsPerPage: 5, currentPage: p }
+      "
       style="width: 21rem; display: inline-block;"
     >
       <div class="card-group">
@@ -16,8 +18,15 @@
         <div class="card-body" style="min-height: 13rem;">
           <h5 class="card-text">Number of index : {{ photo.id }}</h5>
           <p>{{ photo.title }}</p>
-          <a routerLink="/albums" class="btn btn-secondary m-1">Back</a>
         </div>
+      </div>
+    </div>
+    <div class="row m-3">
+      <div>
+        <a routerLink="/albums" class="btn btn-secondary m-2">Back</a>
+      </div>
+      <div id="pagination" class="m-2">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>
   </div>
