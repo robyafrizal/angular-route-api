@@ -1,7 +1,7 @@
 <div class="container-fluid m-4">
-  <h2>Users</h2>
+  <h2>Users Table</h2>
   <p>
-    Display Users with route and API
+    Users Table with route and API
   </p>
   <div class="container m-5">
     <table class="table">
@@ -14,15 +14,26 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users | async">
+        <tr
+          *ngFor="
+            let user of users | paginate: { itemsPerPage: 5, currentPage: p }
+          "
+        >
           <td>{{ user.id }}</td>
-          <td>
-            <a routerLink="albums/{{ user.id }}">{{ user.name }}</a>
-          </td>
+          <td>{{ user.name }}</td>
           <td>{{ user.username }}</td>
           <td>{{ user.email }}</td>
         </tr>
       </tbody>
     </table>
+    <div class="row m-3">
+      <div>
+        <a routerLink="/albums" class="btn btn-primary m-2">Albums</a>
+        <a routerLink="/" class="btn btn-secondary m-2">Back</a>
+      </div>
+      <div id="pagination" class="m-2">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
   </div>
 </div>

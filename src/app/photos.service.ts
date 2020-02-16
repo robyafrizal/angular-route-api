@@ -9,10 +9,8 @@ export class PhotosService {
   getUsers() {
     return this.http.get("https://jsonplaceholder.typicode.com/users");
   }
-  getAlbums(userId) {
-    return this.http.get(
-      `https://jsonplaceholder.typicode.com/albums?userId=${userId}`
-    );
+  getAlbums() {
+    return this.http.get("https://jsonplaceholder.typicode.com/albums");
   }
   getPhotos(albumId) {
     return this.http.get(

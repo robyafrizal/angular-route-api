@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { PhotosService } from "../photos.service";
-import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-albums",
@@ -9,14 +8,9 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class AlbumsComponent implements OnInit {
   albums;
-  userId;
-  constructor(
-    private photosService: PhotosService,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private photosService: PhotosService) {}
 
   ngOnInit() {
-    this.userId = this.route.snapshot.params.userId;
-    this.albums = this.photosService.getAlbums(this.userId);
+    this.albums = this.photosService.getAlbums();
   }
 }
