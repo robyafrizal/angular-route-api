@@ -1,14 +1,20 @@
-<div
-  class="card m-1"
-  *ngFor="let album of albums"
-  style="width: 18rem; min-height: 12rem; display: inline-block;"
->
-  <div class="card-group">
-    <div class="card-body">
-      <h5 class="card-title">Index Album : {{ album.id }}</h5>
-      <p class="card-text">{{ album.title }}</p>
-      <a routerLink="/photos" class="btn btn-primary m-1">See More</a>
-      <a routerLink="/" class="btn btn-secondary m-1">Back</a>
+<div class="container-fluid">
+  <h2>Albums</h2>
+  <p>
+    Albums with route and API
+  </p>
+  <div
+    class="card m-1"
+    *ngFor="let album of albums"
+    style="width: 18rem; min-height: 12rem; display: inline-block;"
+  >
+    <div class="card-group">
+      <div class="card-body">
+        <h5 class="card-title">Index Album : {{ album.id }}</h5>
+        <p class="card-text">{{ album.title }}</p>
+        <a routerLink="/photos" class="btn btn-primary m-1">Photos</a>
+        <a routerLink="/users" class="btn btn-secondary m-1">Back</a>
+      </div>
     </div>
   </div>
 </div>

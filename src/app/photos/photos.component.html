@@ -1,18 +1,23 @@
-<div class="container">
-  <div
-    class="card m-1"
-    *ngFor="let photo of photos"
-    style="width: 21rem; display: inline-block;"
-  >
-    <div class="card-group">
-      <div class="img-card">
-        <img src="{{ photo.url }}" class="card-img-top" alt="photos_api" />
-      </div>
-      <div class="card-body" style="min-height: 13rem;">
-        <h5 class="card-text">Number of index : {{ photo.id }}</h5>
-        <p>{{ photo.title }}</p>
-        <a routerLink="/users" class="btn btn-primary m-1">Users</a>
-        <a routerLink="/" class="btn btn-secondary m-1">Back</a>
+<div class="container-fluid">
+  <h2>Photo</h2>
+  <p>
+    Photo with route and API
+  </p>
+  <div class="container">
+    <div
+      class="card m-3"
+      *ngFor="let photo of photos"
+      style="width: 21rem; display: inline-block;"
+    >
+      <div class="card-group">
+        <div class="img-card">
+          <img src="{{ photo.url }}" class="card-img-top" alt="photos_api" />
+        </div>
+        <div class="card-body" style="min-height: 13rem;">
+          <h5 class="card-text">Number of index : {{ photo.id }}</h5>
+          <p>{{ photo.title }}</p>
+          <a routerLink="/albums" class="btn btn-secondary m-1">Back</a>
+        </div>
       </div>
     </div>
   </div>
