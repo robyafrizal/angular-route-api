@@ -3,11 +3,14 @@
   <p>
     Albums with route and API
   </p>
-  <button routerLink="/" class="btn btn-light mb-3">Go back</button>
   <div class="container">
     <div
       class="card m-1"
-      *ngFor="let album of albums | async"
+      *ngFor="
+        let album of albums
+          | async
+          | paginate: { itemsPerPage: 5, currentPage: p }
+      "
       style="width: 18rem; min-height: 12rem; display: inline-block;"
     >
       <div class="card-group">
@@ -17,6 +20,14 @@
             <a routerLink="photos/{{ album.id }}">{{ album.title }}</a>
           </p>
         </div>
+      </div>
+    </div>
+    <div class="row m-3">
+      <div>
+        <button routerLink="/" class="btn btn-light mb-3">Go back</button>
+      </div>
+      <div id="pagination" class="m-2">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>
   </div>
